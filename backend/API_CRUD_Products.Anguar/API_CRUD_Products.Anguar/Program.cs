@@ -1,4 +1,6 @@
+using API_CRUD_Products.Anguar.Context;
 using API_CRUD_Products.Anguar.IoC;
+using Microsoft.EntityFrameworkCore;
 
 public class Program
 {
@@ -9,9 +11,14 @@ public class Program
         // Add logging
         //builder.Services.AddLogging();
 
+        //builder.Services.ConfigConnectionString(builder.Configuration);
+        // Configure MySQL Database Context
+        builder.Services.AddDbContext<ProductsDbContext>(options =>
+            options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+            ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+
         // Repository as dependency injection
         builder.Services.RegisterService();
-        builder.Services.ConfigConnectionString(builder.Configuration);
 
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();

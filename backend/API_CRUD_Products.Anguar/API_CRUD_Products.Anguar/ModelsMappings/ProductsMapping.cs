@@ -12,8 +12,7 @@ public class ProductsMapping : IEntityTypeConfiguration<Product>
         builder.ToTable("Producto");
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Name).HasMaxLength(55);
-        builder.Property(x => x.CreatedDate).HasDefaultValueSql("getdate()")
-        .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+        builder.Property(x => x.CreatedDate).HasDefaultValue(DateTime.UtcNow);
         builder.Property(x => x.Activated).HasDefaultValue(true);
     }
 }

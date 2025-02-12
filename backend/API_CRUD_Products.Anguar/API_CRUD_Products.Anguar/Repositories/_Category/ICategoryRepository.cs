@@ -4,4 +4,5 @@ namespace API_CRUD_Products.Anguar.Repositories._Category;
 
 public interface ICategoryRepository : IRepository<Category>
 {
+    Task<IEnumerable<Category>> fdsfsdfds();
 }

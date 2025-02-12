@@ -8,4 +8,9 @@ public class CategoryRepository : Repository<Category>, ICategoryRepository
     public CategoryRepository(ProductsDbContext context) : base(context)
     {
     }
+
+    public Task<IEnumerable<Category>> fdsfsdfds()
+    {
+        throw new NotImplementedException();
+    }
 }

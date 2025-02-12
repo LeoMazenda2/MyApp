@@ -1,48 +1,6 @@
-version: '3.8'
-
 services:
-  mysql:
-    image: mysql:8
-    container_name: mysql_db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: minhaappdb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - minha_rede
-
-  backend:
-    build: ./backend
-    container_name: api_backend
-    restart: always
-    depends_on:
-      - mysql
-    environment:
-      ConnectionStrings__DefaultConnection: "Server=mysql_db;Database=minhaappdb;User=user;Password=password;"
-    ports:
-      - "5000:5000"
-    networks:
-      - minha_rede
-
-  frontend:
-    build: ./frontend
-    container_name: angular_frontend
-    restart: always
-    depends_on:
-      - backend
-    ports:
-      - "8080:80"
-    networks:
-      - minha_rede
-
-volumes:
-  mysql_data:
-
-networks:
-  minha_rede:
+  api_crud_products.anguar:
+    image: ${DOCKER_REGISTRY-}apicrudproductsanguar
+    build:
+      context: .
+      dockerfile: backend/API_CRUD_Products.Anguar/API_CRUD_Products.Anguar/Dockerfile

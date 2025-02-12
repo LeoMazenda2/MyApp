@@ -11,11 +11,11 @@ public class CategoryNapping : IEntityTypeConfiguration<Category>
     {      
 
         builder.ToTable("Categoria");
-        builder.HasKey(x => x.Id);  
-        builder.Property(x => x.CreatedDate).HasDefaultValueSql("getdate()")
-        .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+        builder.HasKey(x => x.Id); 
         builder.Property(x => x.Activated).HasDefaultValue(true);
-        //builder.Property(x => x.CreatedDate).HasDefaultValue(DateTime.UtcNow);
+        builder.Property(x => x.CreatedDate).HasDefaultValue(DateTime.UtcNow);
+
+        builder.Property(x => x.CreatedDate).HasColumnType("DATETIME");// Define como DATETIME no MySQL
 
         builder.HasMany(c => c.Products)
                .WithOne(p => p.Category)

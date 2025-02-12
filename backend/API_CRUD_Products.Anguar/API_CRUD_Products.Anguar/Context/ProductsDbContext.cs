@@ -1,28 +1,22 @@
-﻿using API_CRUD_Products.Anguar.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using API_CRUD_Products.Anguar.Model;
 
-namespace API_CRUD_Products.Anguar.Context;
-
-public class ProductsDbContext : DbContext
+namespace API_CRUD_Products.Anguar.Context
 {
-    public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options) { }
-
-    public ProductsDbContext() {}
-
-    protected override void ConfigureConventions(ModelConfigurationBuilder configuration)
+    public class ProductsDbContext : DbContext
     {
-        // Alterando convenções do EF Core
-        configuration.Properties<string>().HaveMaxLength(100);
-        configuration.Properties<decimal>().HavePrecision(18, 2);
+        public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options) 
+        { 
+            Database.EnsureCreated();
+        }
+
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductsDbContext).Assembly);
+        }
     }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {        
-        base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductsDbContext).Assembly);
-    }
-
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Product> Products { get; set; }
-
 }
