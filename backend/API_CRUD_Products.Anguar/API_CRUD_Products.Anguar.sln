@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_CRUD_Products.Anguar", "API_CRUD_Products.Anguar\API_CRUD_Products.Anguar.csproj", "{B1464E3C-2CB1-453F-B08F-22B069C6028E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1464E3C-2CB1-453F-B08F-22B069C6028E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1464E3C-2CB1-453F-B08F-22B069C6028E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1464E3C-2CB1-453F-B08F-22B069C6028E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1464E3C-2CB1-453F-B08F-22B069C6028E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

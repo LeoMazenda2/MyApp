@@ -1,0 +1,6 @@
+@API_CRUD_Products.Anguar_HostAddress = http://localhost:5017
+
+GET {{API_CRUD_Products.Anguar_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
